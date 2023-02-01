@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone_ui/ui/home_content_page.dart';
+import 'package:instagram_clone_ui/ui/profile_page.dart';
+import 'package:instagram_clone_ui/ui/reels_page.dart';
+import 'package:instagram_clone_ui/ui/search_page.dart';
+import 'package:instagram_clone_ui/ui/shop_page.dart';
 
 class HomePage extends StatefulWidget {
   static const routeName = '/home_page';
@@ -21,40 +26,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: const Text(
-          'Instagram',
-          style: TextStyle(fontFamily: 'Billabong', fontSize: 32),
-        ),
-        actions: _buildHomeActions(),
-      ),
-      body: const Center(
-        child: Text('Home Page'),
-      ),
+      body: _contentItems[_bottomNavIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: _buildBottomNavBarItems(),
         currentIndex: _bottomNavIndex,
         onTap: (value) => _onBottomNavTap(value),
       ),
     );
-  }
-
-  List<Widget> _buildHomeActions() {
-    return [
-      IconButton(
-        onPressed: () {},
-        icon: const Icon(Icons.add_a_photo_outlined),
-      ),
-      IconButton(
-        onPressed: () {},
-        icon: const Icon(Icons.favorite_border_outlined),
-      ),
-      IconButton(
-        onPressed: () {},
-        icon: const Icon(Icons.send_outlined),
-      ),
-    ];
   }
 
   List<BottomNavigationBarItem> _buildBottomNavBarItems() {
@@ -91,4 +69,12 @@ class _HomePageState extends State<HomePage> {
       ),
     ];
   }
+
+  final List<Widget> _contentItems = const [
+    HomeContentPage(),
+    SearchPage(),
+    ReelsPage(),
+    ShopPage(),
+    ProfilePage(),
+  ];
 }
