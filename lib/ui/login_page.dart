@@ -77,7 +77,10 @@ class _LoginPageState extends State<LoginPage> {
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.blue[300]),
                     onPressed: () {
-                      Navigator.pushNamed(context, HomePage.routeName);
+                      Navigator.pushNamed(
+                        context,
+                        HomePage.routeName,
+                      );
                     },
                     child: const Text(
                       'Log In',

@@ -16,6 +16,20 @@ class MyApp extends StatelessWidget {
       title: 'Instagram Clone',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        appBarTheme: const AppBarTheme(
+          color: Colors.white,
+          elevation: 0,
+          foregroundColor: Colors.black,
+        ),
+        scaffoldBackgroundColor: Colors.white,
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          backgroundColor: Colors.white,
+          selectedItemColor: Colors.black,
+          unselectedItemColor: Colors.black54,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          type: BottomNavigationBarType.fixed,
+        ),
       ),
       initialRoute: LoginPage.routeName,
       routes: {
