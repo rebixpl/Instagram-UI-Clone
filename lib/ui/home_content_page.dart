@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone_ui/dummy_data/dummy_data.dart';
+import 'package:instagram_clone_ui/widgets/circle_story.dart';
+import 'package:instagram_clone_ui/widgets/user_post.dart';
 
 class HomeContentPage extends StatefulWidget {
   static const routeName = '/home_content_page';
@@ -22,14 +25,38 @@ class _HomeContentPageState extends State<HomeContentPage> {
         actions: _buildHomeActions(),
       ),
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildStoryElement(),
+            SizedBox(
+              height: 120,
+              child: ListView.builder(
+                physics: const BouncingScrollPhysics(),
+                itemBuilder: (context, index) => index == 0
+                    ? CircleStory(
+                        isUser: true,
+                        userModel: users[index],
+                      )
+                    : CircleStory(
+                        isUser: false,
+                        userModel: users[index],
+                      ),
+                itemCount: users.length,
+                scrollDirection: Axis.horizontal,
+              ),
+            ),
             const SizedBox(height: 8),
             const Divider(
               height: .3,
               color: Colors.black26,
+            ),
+            ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              primary: false,
+              shrinkWrap: true,
+              itemBuilder: (context, index) => UserPost(user: users[index]),
+              itemCount: users.length,
             ),
           ],
         ),
@@ -52,61 +79,5 @@ class _HomeContentPageState extends State<HomeContentPage> {
         icon: const Icon(Icons.send_outlined),
       ),
     ];
-  }
-
-  _buildStoryElement() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-      child: Column(
-        children: [
-          Stack(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    width: 1,
-                    color: Colors.grey,
-                  ),
-                ),
-                padding: const EdgeInsets.all(2),
-                child: CircleAvatar(
-                  radius: 27,
-                  backgroundColor: Colors.white,
-                  child: Image.network(
-                    fit: BoxFit.fitHeight,
-                    'http://cdn.onlinewebfonts.com/svg/img_568656.png',
-                  ),
-                ),
-              ),
-              Positioned(
-                bottom: 0,
-                right: 0,
-                child: Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(width: 3, color: Colors.white),
-                    shape: BoxShape.circle,
-                    color: Colors.blue,
-                  ),
-                  child: const Icon(
-                    Icons.add,
-                    size: 15,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 8),
-          Text(
-            'Your Story',
-            style: Theme.of(context)
-                .textTheme
-                .caption!
-                .copyWith(color: Colors.black87),
-          ),
-        ],
-      ),
-    );
   }
 }
