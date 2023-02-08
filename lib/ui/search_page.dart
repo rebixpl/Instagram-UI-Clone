@@ -12,8 +12,36 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Search Page'),
+    return Scaffold(
+      body: NestedScrollView(
+        headerSliverBuilder: (context, innerBoxIsScrolled) => [
+          SliverAppBar(
+            automaticallyImplyLeading: false,
+            title: Container(
+              height: 45,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: Colors.black12,
+              ),
+              child: TextFormField(
+                decoration: const InputDecoration(
+                  fillColor: Colors.grey,
+                  prefixIcon: Icon(
+                    Icons.search,
+                    size: 20,
+                  ),
+                  border: InputBorder.none,
+                  hintText: 'Search',
+                  prefixIconColor: Colors.black54,
+                ),
+              ),
+            ),
+          )
+        ],
+        body: const Center(
+          child: Text('Search Page'),
+        ),
+      ),
     );
   }
 }
