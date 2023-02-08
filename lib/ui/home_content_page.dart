@@ -76,7 +76,7 @@ class _HomeContentPageState extends State<HomeContentPage> {
       ),
       IconButton(
         onPressed: () {},
-        icon: SvgPicture.asset('assets/icons/share_post.svg'),
+        icon: SvgPicture.asset('assets/icons/messages_outlined.svg'),
       ),
     ];
   }
