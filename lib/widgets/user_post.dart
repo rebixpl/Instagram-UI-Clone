@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:instagram_clone_ui/model/user_model.dart';
 
 class UserPost extends StatefulWidget {
@@ -91,12 +92,12 @@ class _UserPostState extends State<UserPost> {
                     ),
                     IconButton(
                       onPressed: () {},
-                      icon: const Icon(Icons.comment_outlined),
+                      icon: SvgPicture.asset('assets/icons/comments.svg'),
                       iconSize: 30,
                     ),
                     IconButton(
                       onPressed: () {},
-                      icon: const Icon(Icons.send_outlined),
+                      icon: SvgPicture.asset('assets/icons/share_post.svg'),
                       iconSize: 30,
                     ),
                   ],

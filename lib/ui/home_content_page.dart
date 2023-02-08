@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:instagram_clone_ui/dummy_data/dummy_data.dart';
 import 'package:instagram_clone_ui/widgets/circle_story.dart';
 import 'package:instagram_clone_ui/widgets/user_post.dart';
@@ -53,7 +54,6 @@ class _HomeContentPageState extends State<HomeContentPage> {
             ),
             ListView.builder(
               physics: const BouncingScrollPhysics(),
-              primary: false,
               shrinkWrap: true,
               itemBuilder: (context, index) => UserPost(user: users[index]),
               itemCount: users.length,
@@ -68,7 +68,7 @@ class _HomeContentPageState extends State<HomeContentPage> {
     return [
       IconButton(
         onPressed: () {},
-        icon: const Icon(Icons.add_a_photo_outlined),
+        icon: SvgPicture.asset('assets/icons/new_post.svg'),
       ),
       IconButton(
         onPressed: () {},
@@ -76,7 +76,7 @@ class _HomeContentPageState extends State<HomeContentPage> {
       ),
       IconButton(
         onPressed: () {},
-        icon: const Icon(Icons.send_outlined),
+        icon: SvgPicture.asset('assets/icons/share_post.svg'),
       ),
     ];
   }

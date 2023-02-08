@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:instagram_clone_ui/ui/home_content_page.dart';
 import 'package:instagram_clone_ui/ui/profile_page.dart';
 import 'package:instagram_clone_ui/ui/reels_page.dart';
@@ -51,8 +52,12 @@ class _HomePageState extends State<HomePage> {
       ),
       BottomNavigationBarItem(
         icon: _bottomNavIndex == 2
-            ? const Icon(Icons.movie_creation)
-            : const Icon(Icons.movie_creation_outlined),
+            ? SvgPicture.asset('assets/icons/reels.svg')
+            : SvgPicture.asset(
+                'assets/icons/reels_outlined.svg',
+                colorFilter:
+                    const ColorFilter.mode(Colors.black54, BlendMode.srcIn),
+              ),
         label: 'Add Post',
       ),
       BottomNavigationBarItem(
