@@ -1,5 +1,9 @@
 import 'package:instagram_clone_ui/model/user_model.dart';
 
+/// URL to get random of images
+///
+/// https://source.unsplash.com/random?sig=index
+
 List<UserModel> users = [
   UserModel(
     username: null,
@@ -47,5 +51,65 @@ List<UserModel> users = [
     imagePostUrl:
         'https://images.unsplash.com/photo-1647534218658-d160bfb47cc2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
     name: 'Boby Atmadja',
+  ),
+  UserModel(
+    username: 'wahyu',
+    imageUrl: 'https://source.unsplash.com/random?sig=1',
+    imagePostUrl: 'https://source.unsplash.com/random?sig=2',
+    name: 'Wahyu Ramdan',
+  ),
+  UserModel(
+    username: 'pacok',
+    imageUrl: 'https://source.unsplash.com/random?sig=20',
+    imagePostUrl: 'https://source.unsplash.com/random?sig=21',
+    name: 'Musyfik',
+  ),
+  UserModel(
+    username: 'nemo',
+    imageUrl: 'https://source.unsplash.com/random?sig=2',
+    imagePostUrl: 'https://source.unsplash.com/random?sig=3',
+    name: 'Asep Husni Mubarok',
+  ),
+  UserModel(
+    username: 'saddam',
+    imageUrl: 'https://source.unsplash.com/random?sig=4',
+    imagePostUrl: 'https://source.unsplash.com/random?sig=5',
+    name: 'Saddam Hussein',
+  ),
+  UserModel(
+    username: 'abeg10',
+    imageUrl: 'https://source.unsplash.com/random?sig=6',
+    imagePostUrl: 'https://source.unsplash.com/random?sig=7',
+    name: 'Alghifari',
+  ),
+  UserModel(
+    username: 'rizandi',
+    imageUrl: 'https://source.unsplash.com/random?sig=8',
+    imagePostUrl: 'https://source.unsplash.com/random?sig=9',
+    name: 'M Rizandi',
+  ),
+  UserModel(
+    username: 'dindameilina',
+    imageUrl: 'https://source.unsplash.com/random?sig=10',
+    imagePostUrl: 'https://source.unsplash.com/random?sig=11',
+    name: 'Dinda Meilina',
+  ),
+  UserModel(
+    username: 'dea',
+    imageUrl: 'https://source.unsplash.com/random?sig=12',
+    imagePostUrl: 'https://source.unsplash.com/random?sig=13',
+    name: 'Dea Sunara',
+  ),
+  UserModel(
+    username: 'uun19',
+    imageUrl: 'https://source.unsplash.com/random?sig=14',
+    imagePostUrl: 'https://source.unsplash.com/random?sig=15',
+    name: 'Nur',
+  ),
+  UserModel(
+    username: 'nida',
+    imageUrl: 'https://source.unsplash.com/random?sig=16',
+    imagePostUrl: 'https://source.unsplash.com/random?sig=17',
+    name: 'Nida Aulia',
   ),
 ];
