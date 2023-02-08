@@ -79,7 +79,7 @@ class _CircleStoryState extends State<CircleStory> {
           SizedBox(
             width: 80,
             child: Text(
-              user.username ?? 'Unknown',
+              user.username ?? 'Your Story',
               style: Theme.of(context)
                   .textTheme
                   .caption!
