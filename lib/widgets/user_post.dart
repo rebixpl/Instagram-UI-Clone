@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:instagram_clone_ui/model/user_model.dart';
@@ -46,10 +47,11 @@ class _UserPostState extends State<UserPost> {
                           end: Alignment.topRight,
                         ),
                       ),
-                      child: CircleAvatar(
-                        radius: 20,
-                        backgroundImage: NetworkImage(
-                          user.imageUrl,
+                      child: CachedNetworkImage(
+                        imageUrl: user.imageUrl,
+                        imageBuilder: (context, imageProvider) => CircleAvatar(
+                          radius: 20,
+                          backgroundImage: imageProvider,
                         ),
                       ),
                     ),
@@ -73,9 +75,13 @@ class _UserPostState extends State<UserPost> {
           SizedBox(
             height: 300,
             width: double.infinity,
-            child: Image.network(
+            child: CachedNetworkImage(
+              imageUrl: user.imagePostUrl,
               fit: BoxFit.cover,
-              user.imagePostUrl,
+              progressIndicatorBuilder: (context, url, progress) =>
+                  CircularProgressIndicator(
+                value: progress.progress,
+              ),
             ),
           ),
           Padding(

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone_ui/model/user_model.dart';
 
@@ -48,10 +49,16 @@ class _CircleStoryState extends State<CircleStory> {
                       : null,
                 ),
                 padding: const EdgeInsets.all(2),
-                child: CircleAvatar(
-                  radius: 35,
-                  backgroundColor: Colors.white,
-                  backgroundImage: NetworkImage(user.imageUrl),
+                child: CachedNetworkImage(
+                  imageUrl: user.imageUrl,
+                  imageBuilder: (context, imageProvider) => CircleAvatar(
+                    radius: 35,
+                    backgroundImage: imageProvider,
+                  ),
+                  progressIndicatorBuilder: (context, url, progress) =>
+                      CircularProgressIndicator(
+                    value: progress.progress,
+                  ),
                 ),
               ),
               Visibility(
@@ -82,7 +89,7 @@ class _CircleStoryState extends State<CircleStory> {
               user.username ?? 'Your Story',
               style: Theme.of(context)
                   .textTheme
-                  .caption!
+                  .bodySmall!
                   .copyWith(color: Colors.black87),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,

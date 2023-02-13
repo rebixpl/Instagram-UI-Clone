@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:instagram_clone_ui/dummy_data/dummy_data.dart';
@@ -53,7 +54,7 @@ class _SearchPageState extends State<SearchPage> {
   _buildPostItem(UserModel user) {
     return Padding(
       padding: const EdgeInsets.all(0.5),
-      child: Image.network(user.imagePostUrl),
+      child: CachedNetworkImage(imageUrl: user.imagePostUrl),
     );
   }
 }
