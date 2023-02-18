@@ -4,7 +4,7 @@ class CustomTextForm extends StatelessWidget {
   final String? hintText;
   final bool? isObsecure;
 
-  CustomTextForm({
+  const CustomTextForm({
     super.key,
     this.hintText,
     this.isObsecure,

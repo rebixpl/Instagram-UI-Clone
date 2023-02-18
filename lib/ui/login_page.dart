@@ -60,11 +60,11 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 const SizedBox(height: 8),
-                CustomTextForm(
+                const CustomTextForm(
                   hintText: 'Email or Phone number',
                 ),
                 const SizedBox(height: 8),
-                CustomTextForm(
+                const CustomTextForm(
                   hintText: 'Password',
                   isObsecure: true,
                 ),

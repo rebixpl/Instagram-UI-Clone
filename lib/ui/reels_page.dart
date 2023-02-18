@@ -32,6 +32,7 @@ class _ReelsPageState extends State<ReelsPage> {
   @override
   Widget build(BuildContext context) {
     final PageController pageController = PageController();
+
     return PageView(
       controller: pageController,
       scrollDirection: Axis.vertical,

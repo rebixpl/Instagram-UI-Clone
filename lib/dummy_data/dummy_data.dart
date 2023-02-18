@@ -113,3 +113,6 @@ List<UserModel> users = [
     name: 'Nida Aulia',
   ),
 ];
+
+List<String> shopList = List.generate(
+    10, (index) => 'https://source.unsplash.com/random?sig=$index');

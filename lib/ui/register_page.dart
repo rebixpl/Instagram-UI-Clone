@@ -1,6 +1,5 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram_clone_ui/ui/login_page.dart';
 import 'package:instagram_clone_ui/widgets/custom_or_divider.dart';
 import 'package:instagram_clone_ui/widgets/custom_textform.dart';
 
@@ -59,19 +58,19 @@ class _RegisterPageState extends State<RegisterPage> {
               padding: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
               child: CustomOrDivider(),
             ),
-            CustomTextForm(
+            const CustomTextForm(
               hintText: 'Mobile number or Email',
               isObsecure: false,
             ),
-            CustomTextForm(
+            const CustomTextForm(
               hintText: 'Full name',
               isObsecure: false,
             ),
-            CustomTextForm(
+            const CustomTextForm(
               hintText: 'Username',
               isObsecure: false,
             ),
-            CustomTextForm(
+            const CustomTextForm(
               hintText: 'Password',
               isObsecure: true,
             ),
