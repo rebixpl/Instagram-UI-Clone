@@ -12,33 +12,84 @@ class ProfilePage extends StatefulWidget {
   State<ProfilePage> createState() => _ProfilePageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _ProfilePageState extends State<ProfilePage>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 3, vsync: this);
+  }
+
   @override
   Widget build(BuildContext context) {
-    return NestedScrollView(
-      headerSliverBuilder: (context, innerBoxIsScrolled) {
-        return [
-          SliverAppBar(
-            automaticallyImplyLeading: false,
-            centerTitle: false,
-            titleSpacing: -10,
-            title: _buildTitleAppBar,
-            pinned: true,
-            leading: IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.lock_outline,
-                size: 20,
+    return DefaultTabController(
+      length: 3,
+      child: NestedScrollView(
+        headerSliverBuilder: (context, innerBoxIsScrolled) {
+          return [
+            _buildAppBar(),
+            _buildHeaderAppBar(),
+            _buildTabBar(),
+          ];
+        },
+        body: TabBarView(
+          controller: _tabController,
+          children: [
+            Icon(Icons.grid_4x4_outlined),
+            SvgPicture.asset('assets/icons/reels_outlined.svg'),
+            Icon(Icons.abc_outlined),
+          ],
+        ),
+      ),
+    );
+  }
+
+  SliverPersistentHeader _buildTabBar() {
+    return SliverPersistentHeader(
+      delegate: SliverAppBarDelegate(
+        tabBar: TabBar(
+          controller: _tabController,
+          indicatorColor: Colors.black,
+          indicatorWeight: 1,
+          tabs: [
+            const Tab(
+              icon: Icon(
+                Icons.grid_3x3_outlined,
+                color: Colors.black,
               ),
             ),
-            actions: _buildActionsAppBar,
-          ),
-          _buildHeaderAppBar()
-        ];
-      },
-      body: const Center(
-        child: Text("text"),
+            Tab(
+              icon: SvgPicture.asset('assets/icons/reels_outlined.svg'),
+            ),
+            const Tab(
+              icon: Icon(
+                Icons.account_box_outlined,
+                color: Colors.black,
+              ),
+            ),
+          ],
+        ),
       ),
+    );
+  }
+
+  SliverAppBar _buildAppBar() {
+    return SliverAppBar(
+      automaticallyImplyLeading: false,
+      centerTitle: false,
+      titleSpacing: -10,
+      title: _buildTitleAppBar,
+      pinned: true,
+      leading: IconButton(
+        onPressed: () {},
+        icon: const Icon(
+          Icons.lock_outline,
+          size: 20,
+        ),
+      ),
+      actions: _buildActionsAppBar,
     );
   }
 
@@ -225,4 +276,28 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
     );
   }
+}
+
+class SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
+  final TabBar tabBar;
+
+  SliverAppBarDelegate({
+    required this.tabBar,
+  });
+
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return tabBar;
+  }
+
+  @override
+  double get maxExtent => tabBar.preferredSize.height;
+
+  @override
+  double get minExtent => tabBar.preferredSize.height;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) =>
+      true;
 }
