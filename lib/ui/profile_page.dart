@@ -15,25 +15,30 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        SliverAppBar(
-          automaticallyImplyLeading: false,
-          centerTitle: false,
-          titleSpacing: -10,
-          title: _buildTitleAppBar,
-          pinned: true,
-          leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.lock_outline,
-              size: 20,
+    return NestedScrollView(
+      headerSliverBuilder: (context, innerBoxIsScrolled) {
+        return [
+          SliverAppBar(
+            automaticallyImplyLeading: false,
+            centerTitle: false,
+            titleSpacing: -10,
+            title: _buildTitleAppBar,
+            pinned: true,
+            leading: IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.lock_outline,
+                size: 20,
+              ),
             ),
+            actions: _buildActionsAppBar,
           ),
-          actions: _buildActionsAppBar,
-        ),
-        _buildHeaderAppBar()
-      ],
+          _buildHeaderAppBar()
+        ];
+      },
+      body: const Center(
+        child: Text("text"),
+      ),
     );
   }
 
