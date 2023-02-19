@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:instagram_clone_ui/dummy_data/dummy_data.dart';
 import 'package:instagram_clone_ui/widgets/circle_image.dart';
-import 'package:instagram_clone_ui/widgets/circle_story.dart';
 
 class ProfilePage extends StatefulWidget {
   static const routeName = '/profile_page';
@@ -138,26 +137,45 @@ class _ProfilePageState extends State<ProfilePage> {
                 Expanded(
                   flex: 3,
                   child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.grey[200],
+                      elevation: 0,
+                    ),
                     onPressed: () {},
-                    child: const Text('Edit profile'),
+                    child: const Text(
+                      'Edit profile',
+                      style: TextStyle(color: Colors.black),
+                    ),
                   ),
                 ),
                 const SizedBox(width: 4),
                 Expanded(
                   flex: 3,
                   child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.grey[200],
+                      elevation: 0,
+                    ),
                     onPressed: () {},
-                    child: const Text('Share profile'),
+                    child: const Text(
+                      'Share profile',
+                      style: TextStyle(color: Colors.black),
+                    ),
                   ),
                 ),
                 const SizedBox(width: 4),
                 Expanded(
                   flex: 1,
                   child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.grey[200],
+                      elevation: 0,
+                    ),
                     onPressed: () {},
                     child: const Icon(
                       Icons.person_add_outlined,
                       size: 15,
+                      color: Colors.black,
                     ),
                   ),
                 ),
