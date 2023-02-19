@@ -107,11 +107,10 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             const Text(
               "Ramdhan",
-              style: TextStyle(),
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
             const Text(
-              "Faild Fast, Succeed Faster",
-              style: TextStyle(),
+              "Failed Fast, Succeed Faster",
             ),
             const SizedBox(height: 8),
             GestureDetector(
