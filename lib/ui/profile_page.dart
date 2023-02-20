@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:instagram_clone_ui/dummy_data/dummy_data.dart';
+import 'package:instagram_clone_ui/ui/profile_post_page.dart';
 import 'package:instagram_clone_ui/widgets/circle_image.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -37,9 +38,9 @@ class _ProfilePageState extends State<ProfilePage>
         body: TabBarView(
           controller: _tabController,
           children: [
-            Icon(Icons.grid_4x4_outlined),
+            const ProfilePostPage(),
             SvgPicture.asset('assets/icons/reels_outlined.svg'),
-            Icon(Icons.abc_outlined),
+            const Icon(Icons.account_box_outlined),
           ],
         ),
       ),
