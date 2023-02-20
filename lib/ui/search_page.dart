@@ -21,6 +21,7 @@ class _SearchPageState extends State<SearchPage> {
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           SliverAppBar(
             automaticallyImplyLeading: false,
+            floating: true,
             title: Container(
               height: 45,
               decoration: BoxDecoration(
@@ -43,6 +44,7 @@ class _SearchPageState extends State<SearchPage> {
           )
         ],
         body: MasonryGridView.count(
+          padding: const EdgeInsets.only(top: 16),
           itemCount: users.length,
           crossAxisCount: 3,
           itemBuilder: (context, index) => _buildPostItem(users[index]),
