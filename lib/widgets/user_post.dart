@@ -78,10 +78,6 @@ class _UserPostState extends State<UserPost> {
             child: CachedNetworkImage(
               imageUrl: user.imagePostUrl,
               fit: BoxFit.cover,
-              progressIndicatorBuilder: (context, url, progress) =>
-                  CircularProgressIndicator(
-                value: progress.progress,
-              ),
             ),
           ),
           Padding(
