@@ -1,4 +1,3 @@
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone_ui/dummy_data/dummy_data.dart';
@@ -84,6 +83,7 @@ class _ShopPageState extends State<ShopPage> {
         ),
       ],
       body: GridView.count(
+          padding: const EdgeInsets.only(top: 16),
           crossAxisCount: 2,
           children: shopList
               .map(
