@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:instagram_clone_ui/dummy_data/dummy_data.dart';
 
 class ProfilePostPage extends StatefulWidget {
@@ -19,9 +20,46 @@ class _ProfilePostPageState extends State<ProfilePostPage> {
       crossAxisSpacing: 1.6,
       children: profilePostsList
           .map(
-            (imageUrl) => CachedNetworkImage(
-              imageUrl: imageUrl,
-              fit: BoxFit.cover,
+            (post) => Stack(
+              children: [
+                CachedNetworkImage(
+                  imageUrl: post.imageUrl,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+                post.isReel
+                    ? Positioned(
+                        right: 8.0,
+                        top: 8.0,
+                        child: ColorFiltered(
+                          colorFilter: const ColorFilter.mode(
+                            Colors.white,
+                            BlendMode.srcATop,
+                          ),
+                          child: Image.asset(
+                            'assets/icons/reels_solid.png',
+                            width: 18.0,
+                          ),
+                        ),
+                      )
+                    : const SizedBox.shrink(),
+                post.isCarousel
+                    ? Positioned(
+                        right: 8.0,
+                        top: 8.0,
+                        child: ColorFiltered(
+                          colorFilter: const ColorFilter.mode(
+                            Colors.white,
+                            BlendMode.srcATop,
+                          ),
+                          child: Image.asset(
+                            'assets/icons/carousel_solid.png',
+                            width: 18.0,
+                          ),
+                        ),
+                      )
+                    : const SizedBox.shrink(),
+              ],
             ),
           )
           .toList(),
