@@ -117,3 +117,15 @@ List<UserModel> users = [
 
 List<String> shopList = List.generate(
     10, (index) => 'https://source.unsplash.com/random?sig=$index');
+
+List<String> profilePostsList = [
+  'https://firebasestorage.googleapis.com/v0/b/tiktok-clone-3ef.appspot.com/o/ig_clone_app%2Fposts%2FScreenshot%202023-03-19%20at%2010.40.53%20AM.png?alt=media&token=d4db90a9-06e9-480f-8d4f-2a19175cc768',
+  'https://firebasestorage.googleapis.com/v0/b/tiktok-clone-3ef.appspot.com/o/ig_clone_app%2Fposts%2FScreenshot%202023-03-19%20at%2010.41.19%20AM.png?alt=media&token=f991e122-8706-4df3-88b3-9bf527b08af1',
+  'https://firebasestorage.googleapis.com/v0/b/tiktok-clone-3ef.appspot.com/o/ig_clone_app%2Fposts%2F336036505_178016208366951_4946357566349123878_n.jpg?alt=media&token=115c4732-79c0-40bf-968c-c3f6e99e166f',
+  'https://firebasestorage.googleapis.com/v0/b/tiktok-clone-3ef.appspot.com/o/ig_clone_app%2Fposts%2FScreenshot%202023-03-19%20at%2010.45.54%20AM.png?alt=media&token=44f3efbe-a139-461c-a1ed-1181ec11c9a9',
+  'https://firebasestorage.googleapis.com/v0/b/tiktok-clone-3ef.appspot.com/o/ig_clone_app%2Fposts%2FScreenshot%202023-03-19%20at%2010.46.08%20AM.png?alt=media&token=e7bd0451-31d9-4d01-8e25-376863875573',
+  'https://firebasestorage.googleapis.com/v0/b/tiktok-clone-3ef.appspot.com/o/ig_clone_app%2Fposts%2FScreenshot%202023-03-19%20at%2010.46.16%20AM.png?alt=media&token=d610d1c5-7c67-42cf-ad14-def1bc45a79d',
+  'https://firebasestorage.googleapis.com/v0/b/tiktok-clone-3ef.appspot.com/o/ig_clone_app%2Fposts%2FScreenshot%202023-03-19%20at%2010.46.25%20AM.png?alt=media&token=10412cde-32b7-406f-bd83-26a11398d4ce',
+  'https://firebasestorage.googleapis.com/v0/b/tiktok-clone-3ef.appspot.com/o/ig_clone_app%2Fposts%2FScreenshot%202023-03-19%20at%2010.46.34%20AM.png?alt=media&token=ad99c50b-9dac-4672-8693-f043be4449b7',
+  'https://firebasestorage.googleapis.com/v0/b/tiktok-clone-3ef.appspot.com/o/ig_clone_app%2Fposts%2FScreenshot%202023-03-19%20at%2010.46.45%20AM.png?alt=media&token=3597e82c-0c6d-493f-a109-7e63d9f93493'
+];

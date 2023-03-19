@@ -21,7 +21,7 @@ class _ProfilePageState extends State<ProfilePage>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 4, vsync: this);
   }
 
   @override
@@ -39,8 +39,14 @@ class _ProfilePageState extends State<ProfilePage>
         body: TabBarView(
           controller: _tabController,
           children: [
-            const ProfilePostPage(),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 1.6),
+              child: ProfilePostPage(),
+            ),
             SvgPicture.asset('assets/icons/reels_outlined.svg'),
+            const Center(
+              child: Text("Guides"),
+            ),
             const Icon(Icons.account_box_outlined),
           ],
         ),
@@ -54,21 +60,57 @@ class _ProfilePageState extends State<ProfilePage>
         tabBar: TabBar(
           controller: _tabController,
           indicatorColor: Colors.black,
+          labelColor: Colors.black,
+          unselectedLabelColor: Colors.grey,
           indicatorWeight: 1,
+          onTap: (value) {
+            setState(() {});
+          },
           tabs: [
-            const Tab(
-              icon: Icon(
-                Icons.grid_3x3_outlined,
-                color: Colors.black,
+            Tab(
+              icon: ColorFiltered(
+                colorFilter: ColorFilter.mode(
+                  _tabController.index == 0 ? Colors.black : Colors.grey,
+                  BlendMode.lighten,
+                ),
+                child: Image.asset(
+                  'assets/icons/grid_icon.jpeg',
+                  width: 22.0,
+                ),
               ),
             ),
             Tab(
-              icon: SvgPicture.asset('assets/icons/reels_outlined.svg'),
+              icon: SvgPicture.asset(
+                'assets/icons/reels_outlined.svg',
+                width: 26.0,
+                color: _tabController.index == 1 ? Colors.black : Colors.grey,
+              ),
             ),
-            const Tab(
-              icon: Icon(
-                Icons.account_box_outlined,
-                color: Colors.black,
+            Tab(
+              icon: ColorFiltered(
+                colorFilter: ColorFilter.mode(
+                  _tabController.index == 2 ? Colors.black : Colors.grey,
+                  BlendMode.srcATop,
+                ),
+                child: Image.asset(
+                  'assets/icons/guides_icon-removebg.png',
+                  width: 22.0,
+                ),
+              ),
+            ),
+            Tab(
+              icon: Padding(
+                padding: const EdgeInsets.only(bottom: 2.0),
+                child: ColorFiltered(
+                  colorFilter: ColorFilter.mode(
+                    _tabController.index == 3 ? Colors.black : Colors.grey,
+                    BlendMode.srcATop,
+                  ),
+                  child: Image.asset(
+                    'assets/icons/tags_icon-removebg.png',
+                    width: 23.0,
+                  ),
+                ),
               ),
             ),
           ],
@@ -195,7 +237,53 @@ class _ProfilePageState extends State<ProfilePage>
             //     ],
             //   ),
             // ),
-            // const SizedBox(height: 8),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.grey[200],
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                ),
+                onPressed: () {},
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    top: 12.0,
+                    bottom: 12.0,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'Professional dashboard',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          Text(
+                            '11K accounts reached in the last 30 days.',
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 119, 118, 118),
+                              fontWeight: FontWeight.normal,
+                              fontSize: 12.5,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

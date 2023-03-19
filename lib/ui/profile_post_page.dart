@@ -17,7 +17,7 @@ class _ProfilePostPageState extends State<ProfilePostPage> {
       crossAxisCount: 3,
       mainAxisSpacing: 1.6,
       crossAxisSpacing: 1.6,
-      children: shopList
+      children: profilePostsList
           .map(
             (imageUrl) => CachedNetworkImage(
               imageUrl: imageUrl,
