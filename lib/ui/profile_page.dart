@@ -149,7 +149,7 @@ class _ProfilePageState extends State<ProfilePage>
               children: [
                 CircleImage(
                   userModel: users[0],
-                  radius: 42.0,
+                  radius: 43.0,
                 ),
                 Row(
                   children: [

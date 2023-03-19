@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:instagram_clone_ui/dummy_data/dummy_data.dart';
+import 'package:instagram_clone_ui/ui/add_post_page.dart';
 import 'package:instagram_clone_ui/ui/home_content_page.dart';
 import 'package:instagram_clone_ui/ui/profile_page.dart';
 import 'package:instagram_clone_ui/ui/reels_page.dart';
 import 'package:instagram_clone_ui/ui/search_page.dart';
 import 'package:instagram_clone_ui/ui/shop_page.dart';
+import 'package:instagram_clone_ui/widgets/circle_image.dart';
 
 class HomePage extends StatefulWidget {
   static const routeName = '/home_page';
@@ -28,10 +32,18 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _contentItems[_bottomNavIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        items: _buildBottomNavBarItems(),
-        currentIndex: _bottomNavIndex,
-        onTap: (value) => _onBottomNavTap(value),
+      bottomNavigationBar: Theme(
+        data: Theme.of(context).copyWith(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+        ),
+        child: BottomNavigationBar(
+          enableFeedback: false,
+          backgroundColor: _bottomNavIndex == 3 ? Colors.black : Colors.white,
+          items: _buildBottomNavBarItems(),
+          currentIndex: _bottomNavIndex,
+          onTap: (value) => _onBottomNavTap(value),
+        ),
       ),
     );
   }
@@ -40,36 +52,87 @@ class _HomePageState extends State<HomePage> {
     return [
       BottomNavigationBarItem(
         icon: _bottomNavIndex == 0
-            ? const Icon(Icons.home)
-            : const Icon(Icons.home_outlined),
+            ? ColorFiltered(
+                colorFilter: const ColorFilter.mode(
+                  Colors.black,
+                  BlendMode.srcATop,
+                ),
+                child: Image.asset(
+                  'assets/icons/home_solid.png',
+                  width: 22.0,
+                ),
+              )
+            : ColorFiltered(
+                colorFilter: ColorFilter.mode(
+                  _bottomNavIndex != 3 ? Colors.black : Colors.white,
+                  BlendMode.srcATop,
+                ),
+                child: Image.asset(
+                  'assets/icons/home_outlined.png',
+                  width: 22.0,
+                ),
+              ),
         label: 'Home',
       ),
       BottomNavigationBarItem(
         icon: _bottomNavIndex == 1
-            ? const Icon(Icons.search)
-            : const Icon(Icons.search_outlined),
+            ? ColorFiltered(
+                colorFilter: const ColorFilter.mode(
+                  Colors.black,
+                  BlendMode.srcATop,
+                ),
+                child: Image.asset(
+                  'assets/icons/search_solid.png',
+                  width: 22.0,
+                ),
+              )
+            : ColorFiltered(
+                colorFilter: ColorFilter.mode(
+                  _bottomNavIndex != 3 ? Colors.black : Colors.white,
+                  BlendMode.srcATop,
+                ),
+                child: Image.asset(
+                  'assets/icons/search_outlined.png',
+                  width: 22.0,
+                ),
+              ),
         label: 'Search',
       ),
       BottomNavigationBarItem(
-        icon: _bottomNavIndex == 2
-            ? SvgPicture.asset('assets/icons/reels.svg')
-            : SvgPicture.asset(
+        icon: SvgPicture.asset(
+          'assets/icons/new_post.svg',
+          color: _bottomNavIndex != 3 ? Colors.black : Colors.white,
+          width: 26.0,
+        ),
+        label: 'Favorite',
+      ),
+      BottomNavigationBarItem(
+        icon: _bottomNavIndex != 3
+            ? SvgPicture.asset(
                 'assets/icons/reels_outlined.svg',
-                colorFilter:
-                    const ColorFilter.mode(Colors.black54, BlendMode.srcIn),
+                // color: Colors.black,
+              )
+            : ColorFiltered(
+                colorFilter: const ColorFilter.mode(
+                  Colors.white,
+                  BlendMode.srcATop,
+                ),
+                child: Image.asset(
+                  'assets/icons/reels_solid.png',
+                  width: 22.0,
+                ),
               ),
         label: 'Add Post',
       ),
       BottomNavigationBarItem(
-        icon: _bottomNavIndex == 3
-            ? const Icon(Icons.shopping_bag)
-            : const Icon(Icons.shopping_bag_outlined),
-        label: 'Favorite',
-      ),
-      BottomNavigationBarItem(
-        icon: _bottomNavIndex == 4
-            ? const Icon(Icons.account_circle)
-            : const Icon(Icons.account_circle_outlined),
+        icon: CircleImage(
+          userModel: users[0],
+          radius: 11.0,
+          showAddStory: false,
+          internalPadding: 1.0,
+          outsideCircleColor:
+              _bottomNavIndex != 4 ? Colors.white : Colors.black,
+        ),
         label: 'Profile',
       ),
     ];
@@ -78,8 +141,9 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _contentItems = const [
     HomeContentPage(),
     SearchPage(),
+    // ShopPage(),
+    AddPostPage(),
     ReelsPage(),
-    ShopPage(),
     ProfilePage(),
   ];
 }

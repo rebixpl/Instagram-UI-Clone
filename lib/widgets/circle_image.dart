@@ -5,11 +5,17 @@ import 'package:instagram_clone_ui/model/user_model.dart';
 class CircleImage extends StatefulWidget {
   final UserModel userModel;
   final double radius;
+  final bool showAddStory;
+  final double internalPadding;
+  final Color outsideCircleColor;
 
   const CircleImage({
     super.key,
     required this.userModel,
     this.radius = 35,
+    this.showAddStory = true,
+    this.internalPadding = 5.0,
+    this.outsideCircleColor = Colors.grey,
   });
 
   @override
@@ -32,10 +38,10 @@ class _CircleImageState extends State<CircleImage> {
                   shape: BoxShape.circle,
                   border: Border.all(
                     width: 1,
-                    color: Colors.grey,
+                    color: widget.outsideCircleColor,
                   ),
                 ),
-                padding: const EdgeInsets.all(6.0),
+                padding: EdgeInsets.all(widget.internalPadding),
                 child: CachedNetworkImage(
                   imageUrl: user.imageUrl,
                   imageBuilder: (context, imageProvider) => CircleAvatar(
@@ -48,22 +54,24 @@ class _CircleImageState extends State<CircleImage> {
                   ),
                 ),
               ),
-              Positioned(
-                bottom: 0,
-                right: 0,
-                child: Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(width: 3, color: Colors.white),
-                    shape: BoxShape.circle,
-                    color: Colors.blue,
-                  ),
-                  child: const Icon(
-                    Icons.add,
-                    size: 15,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
+              widget.showAddStory
+                  ? Positioned(
+                      bottom: 0,
+                      right: 0,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(width: 3, color: Colors.white),
+                          shape: BoxShape.circle,
+                          color: Colors.blue,
+                        ),
+                        child: const Icon(
+                          Icons.add,
+                          size: 15,
+                          color: Colors.white,
+                        ),
+                      ),
+                    )
+                  : const SizedBox.shrink(),
             ],
           ),
           const SizedBox(height: 8),
