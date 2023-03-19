@@ -15,7 +15,7 @@ List<UserModel> users = [
     username: 'realrealwoman18',
     imageUrl:
         'https://firebasestorage.googleapis.com/v0/b/tiktok-clone-3ef.appspot.com/o/ig_clone_app%2Fig_profile_pic.jpeg?alt=media&token=ce305661-020a-4ec4-ba79-f5bc951a0e33',
-    postsList: postListsSource[1],
+    postsList: postLists[0],
     name: 'REAL WOMAN 👩 - Al Girls, AI Photos & Al Art',
   ),
   UserModel(

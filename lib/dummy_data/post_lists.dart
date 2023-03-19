@@ -1,4 +1,6 @@
+import 'dart:convert';
 import 'dart:math';
+import 'package:http/http.dart' as http;
 
 import 'package:instagram_clone_ui/model/post_model.dart';
 
@@ -59,9 +61,9 @@ List<PostModel> postListA = [
 /// Post Lists - Randomly Generated
 List<List<PostModel>> postListsRandom = List.generate(
   16,
-  (index) => List.generate(
+  (k) => List.generate(
     10,
-    (index) => PostModel(
+    (j) => PostModel(
       imageUrl:
           'https://source.unsplash.com/random?sig=${Random().nextInt(1000)}',
       isReel: Random().nextBool(),
