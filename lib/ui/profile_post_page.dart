@@ -25,9 +25,10 @@ class _ProfilePostPageState extends State<ProfilePostPage> {
                 CachedNetworkImage(
                   imageUrl: post.imageUrl,
                   width: double.infinity,
+                  height: double.infinity,
                   fit: BoxFit.cover,
                 ),
-                post.isReel
+                post.isReel && !post.isCarousel
                     ? Positioned(
                         right: 8.0,
                         top: 8.0,
@@ -43,7 +44,7 @@ class _ProfilePostPageState extends State<ProfilePostPage> {
                         ),
                       )
                     : const SizedBox.shrink(),
-                post.isCarousel
+                post.isCarousel && !post.isReel
                     ? Positioned(
                         right: 8.0,
                         top: 8.0,
