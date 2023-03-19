@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:instagram_clone_ui/dummy_data/dummy_data.dart';
 
 class ProfilePostPage extends StatefulWidget {

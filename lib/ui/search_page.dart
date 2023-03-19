@@ -22,21 +22,34 @@ class _SearchPageState extends State<SearchPage> {
           SliverAppBar(
             automaticallyImplyLeading: false,
             floating: true,
+            pinned: true,
             title: Container(
-              height: 45,
+              height: 40,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
-                color: Colors.black12,
+                color: const Color.fromARGB(19, 0, 0, 0),
               ),
               child: TextFormField(
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   fillColor: Colors.grey,
-                  prefixIcon: Icon(
-                    Icons.search,
-                    size: 20,
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: ColorFiltered(
+                      colorFilter: const ColorFilter.mode(
+                        Color.fromARGB(255, 124, 123, 123),
+                        BlendMode.srcATop,
+                      ),
+                      child: Image.asset(
+                        'assets/icons/search_outlined.png',
+                      ),
+                    ),
                   ),
                   border: InputBorder.none,
                   hintText: 'Search',
+                  hintStyle: const TextStyle(
+                    fontSize: 18.0,
+                    color: Color.fromARGB(255, 139, 139, 139),
+                  ),
                   prefixIconColor: Colors.black54,
                 ),
               ),
@@ -44,8 +57,10 @@ class _SearchPageState extends State<SearchPage> {
           )
         ],
         body: MasonryGridView.count(
-          padding: const EdgeInsets.only(top: 16),
+          padding: const EdgeInsets.only(top: 0.0),
           itemCount: users.length,
+          mainAxisSpacing: 1.2,
+          crossAxisSpacing: 1.2,
           crossAxisCount: 3,
           itemBuilder: (context, index) => _buildPostItem(users[index]),
         ),
@@ -54,9 +69,6 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   _buildPostItem(UserModel user) {
-    return Padding(
-      padding: const EdgeInsets.all(0.5),
-      child: CachedNetworkImage(imageUrl: user.imagePostUrl),
-    );
+    return CachedNetworkImage(imageUrl: user.imagePostUrl);
   }
 }
