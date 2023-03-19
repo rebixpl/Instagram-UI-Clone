@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:instagram_clone_ui/dummy_data/dummy_data.dart';
 import 'package:instagram_clone_ui/ui/profile_post_page.dart';
 import 'package:instagram_clone_ui/widgets/circle_image.dart';
@@ -80,16 +81,16 @@ class _ProfilePageState extends State<ProfilePage>
     return SliverAppBar(
       automaticallyImplyLeading: false,
       centerTitle: false,
-      titleSpacing: -10,
+      // titleSpacing: -10,
       title: _buildTitleAppBar,
       pinned: true,
-      leading: IconButton(
-        onPressed: () {},
-        icon: const Icon(
-          Icons.lock_outline,
-          size: 20,
-        ),
-      ),
+      // leading: IconButton(
+      //   onPressed: () {},
+      //   icon: const Icon(
+      //     Icons.lock_outline,
+      //     size: 20,
+      //   ),
+      // ),
       actions: _buildActionsAppBar,
     );
   }
@@ -104,14 +105,17 @@ class _ProfilePageState extends State<ProfilePage>
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CircleImage(userModel: users[0]),
+                CircleImage(
+                  userModel: users[0],
+                  radius: 42.0,
+                ),
                 Row(
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: const [
                         Text(
-                          "22",
+                          "102",
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -119,16 +123,16 @@ class _ProfilePageState extends State<ProfilePage>
                         ),
                         Text(
                           "Posts",
-                          style: TextStyle(fontSize: 16),
+                          style: TextStyle(fontSize: 15),
                         ),
                       ],
                     ),
-                    const SizedBox(width: 24),
+                    const SizedBox(width: 30),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: const [
                         Text(
-                          "1.247",
+                          "2 377",
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -136,16 +140,16 @@ class _ProfilePageState extends State<ProfilePage>
                         ),
                         Text(
                           "Followers",
-                          style: TextStyle(fontSize: 16),
+                          style: TextStyle(fontSize: 15),
                         ),
                       ],
                     ),
-                    const SizedBox(width: 16),
+                    const SizedBox(width: 22),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: const [
                         Text(
-                          "1.172",
+                          "3 855",
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -153,7 +157,7 @@ class _ProfilePageState extends State<ProfilePage>
                         ),
                         Text(
                           "Following",
-                          style: TextStyle(fontSize: 16),
+                          style: TextStyle(fontSize: 15),
                         ),
                       ],
                     ),
@@ -162,31 +166,36 @@ class _ProfilePageState extends State<ProfilePage>
                 ),
               ],
             ),
-            const Text(
-              "Ramdhan",
-              style: TextStyle(fontWeight: FontWeight.bold),
+
+            Text(
+              users[0].name,
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             const Text(
-              "Failed Fast, Succeed Faster",
+              "Modeling Agency",
+              style: TextStyle(color: Color.fromARGB(255, 16, 79, 131)),
+            ),
+            const Text(
+              "Hot Pics & Girls, DM me if you want to post your content 💬\nFollow for more 😃",
             ),
             const SizedBox(height: 8),
-            GestureDetector(
-              onTap: () {},
-              child: Row(
-                children: const [
-                  Icon(
-                    Icons.link,
-                    color: Colors.blue,
-                  ),
-                  SizedBox(width: 4),
-                  Text(
-                    "github.com/ramdhanjr11",
-                    style: TextStyle(color: Colors.blue),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 8),
+            // GestureDetector(
+            //   onTap: () {},
+            //   child: Row(
+            //     children: const [
+            //       Icon(
+            //         Icons.link,
+            //         color: Colors.blue,
+            //       ),
+            //       SizedBox(width: 4),
+            //       Text(
+            //         "github.com/ramdhanjr11",
+            //         style: TextStyle(color: Colors.blue),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+            // const SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -196,11 +205,17 @@ class _ProfilePageState extends State<ProfilePage>
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.grey[200],
                       elevation: 0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
                     ),
                     onPressed: () {},
                     child: const Text(
                       'Edit profile',
-                      style: TextStyle(color: Colors.black),
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ),
@@ -211,30 +226,39 @@ class _ProfilePageState extends State<ProfilePage>
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.grey[200],
                       elevation: 0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
                     ),
                     onPressed: () {},
                     child: const Text(
                       'Share profile',
-                      style: TextStyle(color: Colors.black),
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ),
                 const SizedBox(width: 4),
-                Expanded(
-                  flex: 1,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.grey[200],
-                      elevation: 0,
-                    ),
-                    onPressed: () {},
-                    child: const Icon(
-                      Icons.person_add_outlined,
-                      size: 15,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
+                // Expanded(
+                //   flex: 1,
+                //   child: ElevatedButton(
+                //     style: ElevatedButton.styleFrom(
+                //       backgroundColor: Colors.grey[200],
+                //       elevation: 0,
+                //       shape: RoundedRectangleBorder(
+                //         borderRadius: BorderRadius.circular(8.0),
+                //       ),
+                //     ),
+                //     onPressed: () {},
+                //     child: const Icon(
+                //       Icons.person_add_outlined,
+                //       size: 15,
+                //       color: Colors.black,
+                //     ),
+                //   ),
+                // ),
               ],
             ),
           ],
@@ -251,9 +275,12 @@ class _ProfilePageState extends State<ProfilePage>
       ),
       IconButton(
         onPressed: () {},
-        icon: const Icon(
-          Icons.menu,
-          size: 30,
+        // icon: const Icon(
+        //   Icons.menu,
+        //   size: 30,
+        // ),
+        icon: const FaIcon(
+          FontAwesomeIcons.bars,
         ),
       ),
     ];
@@ -264,12 +291,16 @@ class _ProfilePageState extends State<ProfilePage>
       onTap: () {},
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
-        children: const [
+        children: [
           Text(
-            "Ramdhan Seccond Acc",
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+            users[0].username ?? "Empty Username",
+            style: const TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 24.0,
+            ),
           ),
-          Icon(
+          const Icon(
             Icons.keyboard_arrow_down_outlined,
             size: 18,
           ),

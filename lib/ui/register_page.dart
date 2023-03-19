@@ -24,7 +24,7 @@ class _RegisterPageState extends State<RegisterPage> {
               child: Text(
                 'Instagram',
                 style: TextStyle(
-                  fontFamily: 'Billabong',
+                  fontFamily: 'BlueVinyl',
                   fontSize: 64,
                 ),
               ),

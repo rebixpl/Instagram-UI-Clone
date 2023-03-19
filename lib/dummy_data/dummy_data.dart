@@ -6,11 +6,12 @@ import 'package:instagram_clone_ui/model/user_model.dart';
 
 List<UserModel> users = [
   UserModel(
-    username: null,
-    imageUrl: 'http://cdn.onlinewebfonts.com/svg/img_568656.png',
+    username: 'realrealwoman18',
+    imageUrl:
+        'https://firebasestorage.googleapis.com/v0/b/tiktok-clone-3ef.appspot.com/o/ig_clone_app%2Fig_profile_pic.jpeg?alt=media&token=ce305661-020a-4ec4-ba79-f5bc951a0e33',
     imagePostUrl:
         'https://images.unsplash.com/photo-1674908850980-13d381e2c5f8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=684&q=80',
-    name: 'Ramdhan second acc',
+    name: 'REAL WOMAN 👩 - Al Girls, AI Photos & Al Art',
   ),
   UserModel(
     username: 'ramdhan.official',

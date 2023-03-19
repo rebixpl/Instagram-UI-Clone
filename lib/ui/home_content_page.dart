@@ -21,7 +21,7 @@ class _HomeContentPageState extends State<HomeContentPage> {
         automaticallyImplyLeading: false,
         title: const Text(
           'Instagram',
-          style: TextStyle(fontFamily: 'Billabong', fontSize: 32),
+          style: TextStyle(fontFamily: 'BlueVinyl', fontSize: 32),
         ),
         actions: _buildHomeActions(),
       ),

@@ -55,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                 const Text(
                   'Instagram',
                   style: TextStyle(
-                    fontFamily: 'Billabong',
+                    fontFamily: 'BlueVinyl',
                     fontSize: 64,
                   ),
                 ),
@@ -75,7 +75,8 @@ class _LoginPageState extends State<LoginPage> {
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue[300]),
+                      backgroundColor: Colors.blue,
+                    ),
                     onPressed: () {
                       Navigator.pushNamed(
                         context,

@@ -4,10 +4,12 @@ import 'package:instagram_clone_ui/model/user_model.dart';
 
 class CircleImage extends StatefulWidget {
   final UserModel userModel;
+  final double radius;
 
   const CircleImage({
     super.key,
     required this.userModel,
+    this.radius = 35,
   });
 
   @override
@@ -33,11 +35,11 @@ class _CircleImageState extends State<CircleImage> {
                     color: Colors.grey,
                   ),
                 ),
-                padding: const EdgeInsets.all(2),
+                padding: const EdgeInsets.all(6.0),
                 child: CachedNetworkImage(
                   imageUrl: user.imageUrl,
                   imageBuilder: (context, imageProvider) => CircleAvatar(
-                    radius: 35,
+                    radius: widget.radius,
                     backgroundImage: imageProvider,
                   ),
                   progressIndicatorBuilder: (context, url, progress) =>

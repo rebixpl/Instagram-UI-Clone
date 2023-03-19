@@ -15,6 +15,8 @@ class _ProfilePostPageState extends State<ProfilePostPage> {
     return GridView.count(
       padding: EdgeInsets.zero,
       crossAxisCount: 3,
+      mainAxisSpacing: 1.6,
+      crossAxisSpacing: 1.6,
       children: shopList
           .map(
             (imageUrl) => CachedNetworkImage(
