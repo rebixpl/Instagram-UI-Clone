@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:instagram_clone_ui/model/user_model.dart';
+import 'package:intl/intl.dart' as intl;
 
 class UserPost extends StatefulWidget {
   final UserModel user;
@@ -115,38 +116,39 @@ class _UserPostState extends State<UserPost> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Row(
-              children: const [
-                CircleAvatar(
+              children: [
+                const CircleAvatar(
                   radius: 10,
                   backgroundImage: NetworkImage(
                     'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
                   ),
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 Flexible(
                   child: Text.rich(
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     TextSpan(
                       children: [
-                        TextSpan(text: 'Liked by'),
-                        WidgetSpan(
+                        const TextSpan(text: 'Liked by'),
+                        const WidgetSpan(
                           child: SizedBox(width: 4),
                         ),
-                        TextSpan(
+                        const TextSpan(
                           text: 'ramdhan.official',
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
-                        WidgetSpan(
+                        const WidgetSpan(
                           child: SizedBox(width: 4),
                         ),
-                        TextSpan(text: 'and'),
-                        WidgetSpan(
+                        const TextSpan(text: 'and'),
+                        const WidgetSpan(
                           child: SizedBox(width: 4),
                         ),
                         TextSpan(
-                          text: '13.849 others',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          text:
+                              '${intl.NumberFormat.decimalPattern().format(user.postsList.first.likesAmount)} others',
+                          style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),

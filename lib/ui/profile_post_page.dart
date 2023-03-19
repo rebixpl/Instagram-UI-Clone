@@ -17,7 +17,8 @@ class _ProfilePostPageState extends State<ProfilePostPage> {
       crossAxisCount: 3,
       mainAxisSpacing: 1.6,
       crossAxisSpacing: 1.6,
-      children: profilePostsList
+      children: users[0]
+          .postsList
           .map(
             (post) => Stack(
               children: [
