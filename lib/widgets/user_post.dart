@@ -76,7 +76,7 @@ class _UserPostState extends State<UserPost> {
             height: 300,
             width: double.infinity,
             child: CachedNetworkImage(
-              imageUrl: user.imagePostUrl,
+              imageUrl: user.postsList[0].imageUrl,
               fit: BoxFit.cover,
             ),
           ),

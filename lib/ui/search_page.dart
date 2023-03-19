@@ -69,6 +69,6 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   _buildPostItem(UserModel user) {
-    return CachedNetworkImage(imageUrl: user.imagePostUrl);
+    return CachedNetworkImage(imageUrl: user.postsList.first.imageUrl);
   }
 }
