@@ -1,0 +1,22 @@
+const List<String> dummyCaptions = [
+  "Feeling the sunshine and living my best life ☀️",
+  "Life is too short to not enjoy every moment 🌟",
+  "Exploring new places and creating unforgettable memories 🌎",
+  "Happiness is a state of mind 💭",
+  "Be fearless in the pursuit of what sets your soul on fire 🔥",
+  "Inhale positivity, exhale negativity 🌿",
+  "Adventure awaits",
+  "If at first you don't succeed, try again...or just give up and eat some cake.",
+  "Lost my phone for two hours, felt like I lost a limb.",
+  "Trying to adult, but it's just not happening today.",
+  "hey",
+  "felt cute haha",
+  "who's on myspace???? xdd",
+  "pov: you like pelicans",
+  "bro ☠️",
+  "ayayayaa",
+  "never again",
+  "I'm not lazy, I'm just conserving my energy.",
+  "Me, myself, and Netflix.",
+  "I don't know what I'm doing bruh☠️"
+];

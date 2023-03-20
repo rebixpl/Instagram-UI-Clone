@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
 import 'package:http/http.dart' as http;
+import 'package:instagram_clone_ui/dummy_data/dummy_captions.dart';
 
 import 'package:instagram_clone_ui/model/post_model.dart';
 
@@ -14,7 +15,7 @@ List<PostModel> postListA = [
         'https://firebasestorage.googleapis.com/v0/b/tiktok-clone-3ef.appspot.com/o/ig_clone_app%2Fposts%2FScreenshot%202023-03-19%20at%2010.40.53%20AM.png?alt=media&token=d4db90a9-06e9-480f-8d4f-2a19175cc768',
     isReel: false,
     isCarousel: true,
-    caption: "lorem ipsum",
+    caption: "Wkońcu wyszło slońce🥰",
     likesAmount: 106,
     commentsAmount: 20,
     hashtags: '#hotgirl #test',
@@ -73,7 +74,7 @@ List<List<PostModel>> postListsRandom = List.generate(
           : randomReelsUrls[Random().nextInt(randomReelsUrls.length)],
       isReel: isReel,
       isCarousel: isCarousel,
-      caption: 'lorem ipsum',
+      caption: dummyCaptions[Random().nextInt(dummyCaptions.length)],
       likesAmount: Random().nextInt(10000),
       commentsAmount: Random().nextInt(889),
       hashtags: '#hotgirl #test',
@@ -91,5 +92,4 @@ const randomReelsUrls = [
   "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
   "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
   "https://storage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
-  "https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
 ];
