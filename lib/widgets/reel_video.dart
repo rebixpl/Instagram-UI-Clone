@@ -40,23 +40,18 @@ class _ReelVideoState extends State<ReelVideo> {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      child: AspectRatio(
-        aspectRatio: 1 / 2,
-        child: Stack(
-          children: [
-            Transform.scale(
-              scale: 4.0,
-              child: Center(
-                child: AspectRatio(
-                  aspectRatio: _videoController.value.aspectRatio,
-                  child: VideoPlayer(_videoController),
-                ),
-              ),
+    return Stack(
+      children: [
+        Transform.scale(
+          scale: 4.0,
+          child: Center(
+            child: AspectRatio(
+              aspectRatio: _videoController.value.aspectRatio,
+              child: VideoPlayer(_videoController),
             ),
-          ],
+          ),
         ),
-      ),
+      ],
     );
   }
 }

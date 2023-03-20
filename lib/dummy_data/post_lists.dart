@@ -24,8 +24,8 @@ List<PostModel> postListA = [
   PostModel(
     imageUrl:
         'https://firebasestorage.googleapis.com/v0/b/tiktok-clone-3ef.appspot.com/o/ig_clone_app%2Fposts%2FScreenshot%202023-03-19%20at%2010.41.19%20AM.png?alt=media&token=f991e122-8706-4df3-88b3-9bf527b08af1',
-    isReel: true,
-    isCarousel: false,
+    isReel: false,
+    isCarousel: true,
     caption: "lorem ipsum",
     likesAmount: 106,
     commentsAmount: 20,

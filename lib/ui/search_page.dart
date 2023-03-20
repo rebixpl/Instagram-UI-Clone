@@ -2,7 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:instagram_clone_ui/dummy_data/dummy_data.dart';
+import 'package:instagram_clone_ui/model/post_model.dart';
 import 'package:instagram_clone_ui/model/user_model.dart';
+import 'package:instagram_clone_ui/widgets/post_item.dart';
 import 'package:instagram_clone_ui/widgets/reel_video.dart';
 import 'package:video_player/video_player.dart';
 
@@ -64,63 +66,9 @@ class _SearchPageState extends State<SearchPage> {
           mainAxisSpacing: 1.2,
           crossAxisSpacing: 1.2,
           crossAxisCount: 3,
-          itemBuilder: (context, index) => _buildPostItem(users[index]),
+          itemBuilder: (context, index) => PostItem(user: users[index]),
         ),
       ),
-    );
-  }
-
-  _buildPostItem(UserModel user) {
-    final post = user.postsList.first;
-    debugPrint(post.toString());
-    return Stack(
-      children: [
-        (post.isReel == true && post.isCarousel == true) ||
-                (post.isReel == false && post.isCarousel == false) ||
-                (post.isReel != true && post.isCarousel != false) ||
-                (post.isReel == false && post.isCarousel == true)
-            ? AspectRatio(
-                aspectRatio: 1 / 1,
-                child: CachedNetworkImage(
-                  imageUrl: post.imageUrl,
-                  fit: BoxFit.cover,
-                ),
-              )
-            : ReelVideo(videoLink: post.imageUrl),
-        // ),
-        post.isReel && !post.isCarousel
-            ? Positioned(
-                right: 8.0,
-                top: 8.0,
-                child: ColorFiltered(
-                  colorFilter: const ColorFilter.mode(
-                    Colors.white,
-                    BlendMode.srcATop,
-                  ),
-                  child: Image.asset(
-                    'assets/icons/reels_solid.png',
-                    width: 18.0,
-                  ),
-                ),
-              )
-            : const SizedBox.shrink(),
-        post.isCarousel && !post.isReel
-            ? Positioned(
-                right: 8.0,
-                top: 8.0,
-                child: ColorFiltered(
-                  colorFilter: const ColorFilter.mode(
-                    Colors.white,
-                    BlendMode.srcATop,
-                  ),
-                  child: Image.asset(
-                    'assets/icons/carousel_solid.png',
-                    width: 18.0,
-                  ),
-                ),
-              )
-            : const SizedBox.shrink(),
-      ],
     );
   }
 }

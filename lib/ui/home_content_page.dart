@@ -52,12 +52,12 @@ class _HomeContentPageState extends State<HomeContentPage> {
               height: .3,
               color: Colors.black26,
             ),
-            // ListView.builder(
-            //   physics: const BouncingScrollPhysics(),
-            //   shrinkWrap: true,
-            //   itemBuilder: (context, index) => UserPost(user: users[index]),
-            //   itemCount: users.length,
-            // ),
+            ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              shrinkWrap: true,
+              itemBuilder: (context, index) => UserPost(user: users[index]),
+              itemCount: users.length,
+            ),
           ],
         ),
       ),

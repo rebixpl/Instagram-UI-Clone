@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:instagram_clone_ui/model/user_model.dart';
+import 'package:instagram_clone_ui/widgets/post_item.dart';
 import 'package:intl/intl.dart' as intl;
 
 class UserPost extends StatefulWidget {
@@ -74,12 +75,16 @@ class _UserPostState extends State<UserPost> {
             ),
           ),
           SizedBox(
-            height: 300,
+            // height: 300,
             width: double.infinity,
-            child: CachedNetworkImage(
-              imageUrl: user.postsList[0].imageUrl,
-              fit: BoxFit.cover,
+            child: PostItem(
+              user: user,
+              isFeed: true,
             ),
+            //  CachedNetworkImage(
+            // imageUrl: user.postsList[0].imageUrl,
+            // fit: BoxFit.cover,
+            // ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 4),
