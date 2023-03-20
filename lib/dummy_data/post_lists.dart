@@ -12,8 +12,8 @@ List<PostModel> postListA = [
   PostModel(
     imageUrl:
         'https://firebasestorage.googleapis.com/v0/b/tiktok-clone-3ef.appspot.com/o/ig_clone_app%2Fposts%2FScreenshot%202023-03-19%20at%2010.40.53%20AM.png?alt=media&token=d4db90a9-06e9-480f-8d4f-2a19175cc768',
-    isReel: true,
-    isCarousel: false,
+    isReel: false,
+    isCarousel: true,
     caption: "lorem ipsum",
     likesAmount: 106,
     commentsAmount: 20,
@@ -61,19 +61,35 @@ List<PostModel> postListA = [
 /// Post Lists - Randomly Generated
 List<List<PostModel>> postListsRandom = List.generate(
   16,
-  (k) => List.generate(
-    10,
-    (j) => PostModel(
-      imageUrl:
-          'https://source.unsplash.com/random?sig=${Random().nextInt(1000)}',
-      isReel: Random().nextBool(),
-      isCarousel:
-          Random().nextBool(), //todo: fix this icons intersecting each other
+  (k) => List.generate(10, (j) {
+    final bool isReel = Random().nextBool();
+    final bool isCarousel = Random().nextBool();
+    return PostModel(
+      imageUrl: (isReel == true && isCarousel == true) ||
+              (isReel == false && isCarousel == false) ||
+              (isReel != true && isCarousel != false) ||
+              (isReel == false && isCarousel == true)
+          ? 'https://source.unsplash.com/random?sig=${Random().nextInt(1000)}'
+          : randomReelsUrls[Random().nextInt(randomReelsUrls.length)],
+      isReel: isReel,
+      isCarousel: isCarousel,
       caption: 'lorem ipsum',
       likesAmount: Random().nextInt(10000),
       commentsAmount: Random().nextInt(889),
       hashtags: '#hotgirl #test',
       carouselImageUrls: [],
-    ),
-  ),
+    );
+  }),
 );
+
+const randomReelsUrls = [
+  "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  "https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+  "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+  "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+  "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+  "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+  "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
+  "https://storage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
+  "https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
+];

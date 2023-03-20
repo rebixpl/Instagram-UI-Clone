@@ -30,34 +30,34 @@ class _HomeContentPageState extends State<HomeContentPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
-              height: 120,
-              child: ListView.builder(
-                physics: const BouncingScrollPhysics(),
-                itemBuilder: (context, index) => index == 0
-                    ? CircleStory(
-                        isUser: true,
-                        userModel: users[index],
-                      )
-                    : CircleStory(
-                        isUser: false,
-                        userModel: users[index],
-                      ),
-                itemCount: users.length,
-                scrollDirection: Axis.horizontal,
-              ),
-            ),
+            // SizedBox(
+            //   height: 120,
+            //   child: ListView.builder(
+            //     physics: const BouncingScrollPhysics(),
+            //     itemBuilder: (context, index) => index == 0
+            //         ? CircleStory(
+            //             isUser: true,
+            //             userModel: users[index],
+            //           )
+            //         : CircleStory(
+            //             isUser: false,
+            //             userModel: users[index],
+            //           ),
+            //     itemCount: users.length,
+            //     scrollDirection: Axis.horizontal,
+            //   ),
+            // ),
             const SizedBox(height: 8),
             const Divider(
               height: .3,
               color: Colors.black26,
             ),
-            ListView.builder(
-              physics: const BouncingScrollPhysics(),
-              shrinkWrap: true,
-              itemBuilder: (context, index) => UserPost(user: users[index]),
-              itemCount: users.length,
-            ),
+            // ListView.builder(
+            //   physics: const BouncingScrollPhysics(),
+            //   shrinkWrap: true,
+            //   itemBuilder: (context, index) => UserPost(user: users[index]),
+            //   itemCount: users.length,
+            // ),
           ],
         ),
       ),
