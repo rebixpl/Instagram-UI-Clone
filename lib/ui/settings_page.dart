@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram_clone_ui/widgets/settings_page_options.dart';
+import 'package:instagram_clone_ui/widgets/single_list_tile.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -11,6 +13,8 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
+    const double iconSize = 22.0;
+
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         middle: const Text(
@@ -29,7 +33,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
       ),
       child: SingleChildScrollView(
-        child: Image.asset('assets/img/some_acc_settings.jpeg'),
+        child: Column(
+          children: [
+            Image.asset('assets/img/some_acc_settings.jpeg'),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 10.0),
+              child: SettingsPageOptions(iconSize: iconSize),
+            ),
+            Image.asset('assets/img/logins_and_acc_centre.jpeg'),
+            const SizedBox(height: 60.0),
+          ],
+        ),
       ),
     );
   }
