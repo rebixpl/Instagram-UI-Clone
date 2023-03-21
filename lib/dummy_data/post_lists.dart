@@ -1,12 +1,10 @@
-import 'dart:convert';
 import 'dart:math';
-import 'package:http/http.dart' as http;
 import 'package:instagram_clone_ui/dummy_data/dummy_captions.dart';
 
 import 'package:instagram_clone_ui/model/post_model.dart';
 
 /// Post Lists - Custom Made
-List<List<PostModel>> postLists = [postListA];
+List<List<PostModel>> postLists = [postListA, postListB];
 
 List<PostModel> postListA = [
   // 1
@@ -57,6 +55,20 @@ List<PostModel> postListA = [
     hashtags: '#hotgirl #test',
     carouselImageUrls: [],
   ),
+];
+
+List<PostModel> postListB = [
+  PostModel(
+    imageUrl:
+        'https://firebasestorage.googleapis.com/v0/b/tiktok-clone-3ef.appspot.com/o/ig_clone_app%2Fposts%2Fmrbeastgoofyahh.jpeg?alt=media&token=f5030a35-5349-472d-9e6c-21ec864db935',
+    isReel: false,
+    isCarousel: false,
+    caption: "haha goofy ahh mr beast",
+    likesAmount: 106,
+    commentsAmount: 20,
+    hashtags: '#hotgirl #test',
+    carouselImageUrls: [],
+  )
 ];
 
 /// Post Lists - Randomly Generated

@@ -47,6 +47,7 @@ class _CircleImageState extends State<CircleImage> {
                   imageBuilder: (context, imageProvider) => CircleAvatar(
                     radius: widget.radius,
                     backgroundImage: imageProvider,
+                    backgroundColor: Colors.transparent,
                   ),
                   progressIndicatorBuilder: (context, url, progress) =>
                       CircularProgressIndicator(

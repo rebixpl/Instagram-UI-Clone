@@ -5,8 +5,12 @@ class UserModel {
   final String imageUrl;
   final String name;
   final List<PostModel> postsList;
+  final int followersAmount;
+  final int followingAmount;
 
   UserModel({
+    required this.followersAmount,
+    required this.followingAmount,
     required this.username,
     required this.imageUrl,
     required this.name,

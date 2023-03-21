@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:instagram_clone_ui/dummy_data/dummy_data.dart';
+import 'package:instagram_clone_ui/global/indexes.dart';
 import 'package:instagram_clone_ui/ui/profile_post_page.dart';
+import 'package:instagram_clone_ui/ui/settings_page.dart';
 import 'package:instagram_clone_ui/widgets/circle_image.dart';
+import 'package:instagram_clone_ui/widgets/settings_modal_bottom_sheet.dart';
+import 'package:intl/intl.dart' as intl;
 
 class ProfilePage extends StatefulWidget {
   static const routeName = '/profile_page';
@@ -17,41 +21,55 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  int _currentPage = 0;
 
   @override
   void initState() {
     super.initState();
+    homePageIndex.addListener(() => _currentPage = homePageIndex.value);
+    homePageIndex.addListener(() {
+      setState(() {});
+    });
     _tabController = TabController(length: 4, vsync: this);
   }
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3,
-      child: NestedScrollView(
-        headerSliverBuilder: (context, innerBoxIsScrolled) {
-          return [
-            _buildAppBar(),
-            _buildHeaderAppBar(),
-            _buildTabBar(),
-          ];
-        },
-        body: TabBarView(
-          controller: _tabController,
-          children: [
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 1.6),
-              child: ProfilePostPage(),
+    switch (_currentPage) {
+      case 0:
+        return DefaultTabController(
+          length: 3,
+          child: NestedScrollView(
+            headerSliverBuilder: (context, innerBoxIsScrolled) {
+              return [
+                _buildAppBar(),
+                _buildHeaderAppBar(),
+                _buildTabBar(),
+              ];
+            },
+            body: TabBarView(
+              controller: _tabController,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 1.6),
+                  child: ProfilePostPage(),
+                ),
+                SvgPicture.asset('assets/icons/reels_outlined.svg'),
+                const Center(
+                  child: Text("Guides"),
+                ),
+                const Icon(Icons.account_box_outlined),
+              ],
             ),
-            SvgPicture.asset('assets/icons/reels_outlined.svg'),
-            const Center(
-              child: Text("Guides"),
-            ),
-            const Icon(Icons.account_box_outlined),
-          ],
-        ),
-      ),
-    );
+          ),
+        );
+      case 1:
+        return const SettingsScreen();
+      default:
+        return const Center(
+          child: Text('something went wrong bruh'),
+        );
+    }
   }
 
   SliverPersistentHeader _buildTabBar() {
@@ -155,15 +173,17 @@ class _ProfilePageState extends State<ProfilePage>
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      children: const [
+                      children: [
                         Text(
-                          "102",
-                          style: TextStyle(
+                          intl.NumberFormat.decimalPattern()
+                              .format(users[0].postsList.length)
+                              .toString(),
+                          style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Text(
+                        const Text(
                           "Posts",
                           style: TextStyle(fontSize: 15),
                         ),
@@ -172,15 +192,17 @@ class _ProfilePageState extends State<ProfilePage>
                     const SizedBox(width: 30),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      children: const [
+                      children: [
                         Text(
-                          "2 377",
-                          style: TextStyle(
+                          intl.NumberFormat.decimalPattern()
+                              .format(users[0].followersAmount)
+                              .toString(),
+                          style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Text(
+                        const Text(
                           "Followers",
                           style: TextStyle(fontSize: 15),
                         ),
@@ -189,15 +211,17 @@ class _ProfilePageState extends State<ProfilePage>
                     const SizedBox(width: 22),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      children: const [
+                      children: [
                         Text(
-                          "3 855",
-                          style: TextStyle(
+                          intl.NumberFormat.decimalPattern()
+                              .format(users[0].followingAmount)
+                              .toString(),
+                          style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Text(
+                        const Text(
                           "Following",
                           style: TextStyle(fontSize: 15),
                         ),
@@ -214,11 +238,11 @@ class _ProfilePageState extends State<ProfilePage>
               style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             const Text(
-              "Modeling Agency",
+              "Software Company",
               style: TextStyle(color: Color.fromARGB(255, 16, 79, 131)),
             ),
             const Text(
-              "Hot Pics & Girls, DM me if you want to post your content 💬\nFollow for more 😃",
+              "Follow for more☠️",
             ),
             const SizedBox(height: 8),
             // GestureDetector(
@@ -362,7 +386,15 @@ class _ProfilePageState extends State<ProfilePage>
         icon: SvgPicture.asset('assets/icons/new_post.svg'),
       ),
       IconButton(
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(
+            isScrollControlled: true,
+            context: context,
+            builder: (context) {
+              return const SettingsModalBottomSheet();
+            },
+          );
+        },
         // icon: const Icon(
         //   Icons.menu,
         //   size: 30,
