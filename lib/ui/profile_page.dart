@@ -21,11 +21,12 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
-  int _currentPage = 0;
+  late int _currentPage;
 
   @override
   void initState() {
     super.initState();
+    _currentPage = homePageIndex.value;
     homePageIndex.addListener(() => _currentPage = homePageIndex.value);
     homePageIndex.addListener(() {
       setState(() {});
