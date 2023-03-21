@@ -28,13 +28,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
           color: Colors.black,
         ),
       ),
-      child: const Center(
-        child: Text('Settings Page'),
+      child: SingleChildScrollView(
+        child: Image.asset('assets/img/some_acc_settings.jpeg'),
       ),
     );
-    // Scaffold(
-    // appBar: CupertinoApp(),
-    // body: const Text('Settings Page'),
-    // );
   }
 }
