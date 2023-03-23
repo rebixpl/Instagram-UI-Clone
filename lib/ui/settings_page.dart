@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram_clone_ui/global/indexes.dart';
 import 'package:instagram_clone_ui/widgets/settings_page_options.dart';
-import 'package:instagram_clone_ui/widgets/single_list_tile.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -28,7 +28,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         automaticallyImplyLeading: false,
         padding: const EdgeInsetsDirectional.only(start: 0.0),
         leading: CupertinoNavigationBarBackButton(
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => homePageIndex.value = 0,
           color: Colors.black,
         ),
       ),

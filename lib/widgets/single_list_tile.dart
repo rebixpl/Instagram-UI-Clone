@@ -36,6 +36,7 @@ class SingleListTile extends StatelessWidget {
             style: const TextStyle(
               color: Color.fromARGB(255, 40, 40, 40),
               fontSize: 15.0,
+              fontWeight: FontWeight.w500,
             ),
           ),
           SizedBox(height: isSettingsPage ? 8.0 : 10.0),

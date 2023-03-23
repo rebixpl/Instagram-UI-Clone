@@ -22,16 +22,27 @@ class _ProfilePageState extends State<ProfilePage>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   late int _currentPage;
+  void updateHomePageIndex() {
+    _currentPage = homePageIndex.value;
+    setState(() {});
+  }
 
   @override
   void initState() {
     super.initState();
     _currentPage = homePageIndex.value;
-    homePageIndex.addListener(() => _currentPage = homePageIndex.value);
-    homePageIndex.addListener(() {
-      setState(() {});
-    });
+    // homePageIndex.addListener(() => _currentPage = homePageIndex.value);
+    // homePageIndex.addListener(() {
+    // setState(() {});
+    // });
+    homePageIndex.addListener(updateHomePageIndex);
     _tabController = TabController(length: 4, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    homePageIndex.removeListener(updateHomePageIndex);
+    super.dispose();
   }
 
   @override
